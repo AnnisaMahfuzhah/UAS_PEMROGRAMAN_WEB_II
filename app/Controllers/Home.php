@@ -1,11 +1,19 @@
 <?php
 
-namespace App\Controllers;
-
-class Home extends BaseController
+/**
+*
+*/
+class Home extends CI_Controller
 {
-    public function index()
-    {
-        return view('welcome_message');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('Login');
+		cek_session();
+	}
+
+	public function index()
+	{
+		$this->load->view('home/home_view');
+	}
 }
